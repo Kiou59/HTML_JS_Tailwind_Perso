@@ -57,9 +57,9 @@ function popArticle(n) {
         document.getElementById(' buttonBall ').innerHTML = 'ajouter au panier ';
         document.getElementById('imgBall ').src = articles[n].src;
         document.getElementById('imgBall ').className = 'h-auto   max-h-44 ';
-        document.getElementById('transitionBall').className = " bg-red-400 grid grid-cols-2 ";
-        document.getElementById('priceBall').innerHTML = `${ articles[n].name }: ${ articles[n].price } pokedollar`;
-        document.getElementById('priceBall').className = "text-center uppercase underline font-bold border-y-2  border-stone-500";
+        document.getElementById('transitionBall ').className = " bg-red-400 grid grid-cols-2 ";
+        document.getElementById('priceBall ').innerHTML = `${ articles[n].name }: ${ articles[n].price } pokedollar`;
+        document.getElementById('priceBall gi').className = "text-center uppercase underline font-bold border-y-2  border-stone-500";
     } else
     if (n >= 6 && n <= 11) {
         document.getElementById(' buttonSoin ').innerHTML = `ajouter au panier `;
@@ -72,9 +72,9 @@ function popArticle(n) {
         document.getElementById('buttonBaie ').innerHTML = `Ajouter au panier `;
         document.getElementById('imgBaie ').src = articles[n].src;
         document.getElementById('imgBaie ').className = 'h-auto   max-h-44';
-        document.getElementById('transitionBaie').className = " bg-red-400 grid grid-cols-2 ";
-        document.getElementById('priceBaie').innerHTML = `${ articles[n].name }: ${ articles[n].price } pokedollar`;
-        document.getElementById('priceBaie').className = "text-center uppercase underline font-bold border-y-2  border-stone-400";
+        document.getElementById('transitionBaie ').className = " bg-red-400 grid grid-cols-2 ";
+        document.getElementById('priceBaie ').innerHTML = `${ articles[n].name }: ${ articles[n].price } pokedollar`;
+        document.getElementById('priceBaie ').className = "text-center uppercase underline font-bold border-y-2  border-stone-400";
     } else if (n > 17) {
         document.getElementById(' buttonObj ').innerHTML = `ajouter au panier `;
         document.getElementById('imgObj ').src = articles[n].src;
@@ -90,10 +90,11 @@ function mouseOver(n) {
 }
 
 function hiddenform() {
-    let n = document.getElementById('hiddenForm').className;
+
     document.getElementById('hiddenForm').className = 'h-auto w-auto';
 }
 
-function colapseForm() {
+function col() {
+
     document.getElementById('hiddenForm').className = 'hidden';
-}
+};

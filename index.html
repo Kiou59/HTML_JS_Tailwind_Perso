@@ -31,41 +31,41 @@
                     <label for="msg">Message :</label>
                     <textarea class="border-solid border-2 " id="msg" name="user_message"></textarea>
                 </div>
-                <div class="grid grid-cols-2">
+                <div class="">
                     <button class="uppercase border-2 bg-red-200">envoyer</button>
-                    <button onclick="colapseForm()" id="colapse" class="uppercase border-2 bg-red-200">annuler</button>
                 </div>
             </form>
+            <button onclick='col()' class=" uppercase border-2 bg-red-200 ">annuler</button>
         </div>
         <!-- nav bar -->
-        <div class="grid grid-cols-4 border-b-2 bg-red-400">
-            <a onmouseover="mouseOver(1)" href="#balls " class="col bg-red-400 p-2 text-white font-semibold justify-self-center">Balls</a>
-            <a onmouseover="mouseOver(2)" href="#soins " class="col bg-red-400 p-2 text-white font-semibold justify-self-center">Objets de soins</a>
-            <a onmouseover="mouseOver(3)" href="#baies " class="col bg-red-400 p-2  text-white font-semibold justify-self-center">Baie</a>
-            <a onmouseover="mouseOver(4) " href="#obj " class="col bg-red-400 p-2 text-white font-semibold justify-self-center">Objets de combat</a>
+        <div class="grid grid-cols-4 border-b-2 bg-red-400 ">
+            <a onmouseover="mouseOver(1) " href="#balls " class="col bg-red-400 p-2 text-white font-semibold justify-self-center ">Balls</a>
+            <a onmouseover="mouseOver(2) " href="#soins " class="col bg-red-400 p-2 text-white font-semibold justify-self-center ">Objets de soins</a>
+            <a onmouseover="mouseOver(3) " href="#baies " class="col bg-red-400 p-2 text-white font-semibold justify-self-center ">Baie</a>
+            <a onmouseover="mouseOver(4) " href="#obj " class="col bg-red-400 p-2 text-white font-semibold justify-self-center ">Objets de combat</a>
         </div>
         <!-- banniere -->
-        <div class=" flex justify-item-center">
-            <img id=" banniere " class=" w-auto h-auto max-h-44 m-auto" src="img/baniere.jpg " alt=" ">
+        <div class=" flex justify-item-center ">
+            <img id=" banniere " class=" w-auto h-auto max-h-44 m-auto " src="img/baniere.jpg " alt=" ">
         </div>
         <!-- aricles -->
         <div class="bg-white w-full ">
             <h2 id=" balls " class="text-center text-white uppercase font-bold bg-stone-500 ">balls</h1>
-                <div class="grid grid-cols-2 p-2">
-                    <div class="col justify-self-center">
-                        <h3 class="underline decoration-2  ">classiques:</h3>
-                        <ul class="">
+                <div class="grid grid-cols-2 p-2 ">
+                    <div class="col justify-self-center ">
+                        <h3 class="underline decoration-2 ">classiques:</h3>
+                        <ul class=" ">
                             <li>
-                                <button class=" text-black font-bold leading-loose" onclick=popArticle(0) id="article1 ">poke ball</button>
+                                <button class=" text-black font-bold leading-loose " onclick=popArticle(0) id="article1 ">poke ball</button>
                             </li>
-                            <li><button class=" text-black font-bold leading-loose" onclick=popArticle(1) id="article2 ">poke ball</button>
+                            <li><button class=" text-black font-bold leading-loose " onclick=popArticle(1) id="article2 ">poke ball</button>
                             </li>
-                            <li><button class=" text-black font-bold leading-loose" onclick=popArticle(2) id="article3 ">poke ball</button>
+                            <li><button class=" text-black font-bold leading-loose " onclick=popArticle(2) id="article3 ">poke ball</button>
                             </li>
                         </ul>
                     </div>
                     <div class="col justify-self-center ">
-                        <h3 class="underline decoration-2  ">spéciales:</h3>
+                        <h3 class="underline decoration-2 ">spéciales:</h3>
                         <ul>
                             <li><button class=" text-black font-bold leading-loose " onclick=popArticle(3) id="article4 ">poke ball</button>
                             </li>
@@ -76,15 +76,15 @@
                         </ul>
                     </div>
                 </div>
-                <div id="priceBall" class="hidden"></div>
-                <div id="transitionBall" class=" bg-red-400 grid  ">
+                <div id="priceBall " class="hidden "></div>
+                <div id="transitionBall " class=" bg-red-400 grid ">
                     <div class="col justify-self-center justify-item-center m-auto ">
                         <button " id=" buttonBall " class=" m-auto p-2 bg-red-100 w-36 text-stone-500 uppercase justify-self-center font-bold ">séléctionnez un produit</button>
                 </div>
                 <div class=" col w-22 justify-self-center ">
                     <img id="imgBall " class='hidden h-auto   max-h-44' src="img/foam-fingers.png " alt=" ">
                 </div>
-            </div>
+        </div>
     </div>
     <div class="bg-white ">
         <h2 id="soins " class="text-center text-white uppercase uppercase font-bold bg-stone-500 ">Objets de soins</h2>
@@ -121,18 +121,18 @@
         <div id="priceSoin " class="hidden "></div>
         <div id="transitionSoin " class=" bg-red-400 grid ">
             <div class="col justify-self-center justify-item-center m-auto ">
-                <button " id=" buttonSoin " class=" m-auto p-2 bg-red-100 w-36 text-stone-500 w-36  uppercase font-bold">séléctionnez un produit</button>
+                <button " id=" buttonSoin " class=" m-auto p-2 bg-red-100 w-36 text-stone-500 w-36 uppercase font-bold ">séléctionnez un produit</button>
                     </div>
                     <div class=" col w-22 justify-self-center ">
-                        <img id="imgSoin " class='hidden h-auto  max-h-44' src="img/foam-fingers.png" alt=" ">
+                        <img id="imgSoin " class='hidden h-auto  max-h-44' src="img/foam-fingers.png " alt=" ">
                     </div>
                 </div>
         </div>
         <div class="bg-white ">
-            <h2 id="baies " class="text-center text-white uppercase font-bold bg-stone-500  ">Baie</h2>
+            <h2 id="baies " class="text-center text-white uppercase font-bold bg-stone-500 ">Baie</h2>
             <div class="grid grid-cols-2 p-2 ">
-                <div class="justify-self-center">
-                    <h3 class="underline decoration-2  text-start ">classiques:</h3>
+                <div class="justify-self-center ">
+                    <h3 class="underline decoration-2 text-start ">classiques:</h3>
                     <ul>
                         <li>
                             <button class=" text-black leading-loose " onclick=popArticle(12) id="article13 ">Mepo</button>
@@ -146,7 +146,7 @@
                     </ul>
                 </div>
                 <div class="justify-self-center ">
-                    <h3 class="underline decoration-2  ">spéciales:</h3>
+                    <h3 class="underline decoration-2 ">spéciales:</h3>
                     <ul>
                         <li>
                             <button class=" text-black leading-loose " onclick=popArticle(15) id="article16 ">Frambi</button>
@@ -160,8 +160,8 @@
                     </ul>
                 </div>
             </div>
-            <div id="priceBaie" class="hidden"></div>
-            <div id="transitionBaie" class=" bg-red-400 grid  ">
+            <div id="priceBaie " class="hidden "></div>
+            <div id="transitionBaie " class=" bg-red-400 grid ">
                 <div class="col justify-self-center justify-item-center m-auto ">
                     <button " id="buttonBaie " class=" m-auto p-2 bg-red-100 w-36 text-stone-500 uppercase font-bold ">séléctionnez un produit</button>
             </div>
@@ -205,10 +205,10 @@
         <div id="priceObj " class="hidden "></div>
         <div id="transitionObj " class=" bg-red-400 grid border-b-2 ">
             <div class="col justify-self-center justify-item-center m-auto ">
-                <button " id=" buttonObj " class=" m-auto p-2 bg-red-100 w-36 text-stone-500 uppercase border-2 font-bold">séléctionnez un produit</button>
+                <button " id=" buttonObj " class=" m-auto p-2 bg-red-100 w-36 text-stone-500 uppercase border-2 font-bold ">séléctionnez un produit</button>
                 </div>
                 <div class=" col w-22 justify-self-center ">
-                    <img id="imgObj " class='hidden h-auto  max-h-44' src="img/foam-fingers.png" alt=" ">
+                    <img id="imgObj " class='hidden h-auto  max-h-44' src="img/foam-fingers.png " alt=" ">
                 </div>
             </div>
         </div>
