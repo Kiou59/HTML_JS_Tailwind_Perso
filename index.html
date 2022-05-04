@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="w-auto">
+        <div class="grid grid-cols-4">
+            <!-- en tete -->
+            <div class="col justify-self-start">
+                <img class="h-16 " src=" img/pokeball.png " alt=" "></div>
+            <div class="col-span-2 m-auto">
+                <h1 class=" uppercase text-4xl text-start">PokéShop</h1>
+            </div>
+            <div class="col justify-self-end my-auto">
+                <button onclick='hiddenform()' class="border-2 text-stone-500 bg-red-100  p-2 ">Contact</button></div>
+        </div>
+        <div id="hiddenForm" class="hidden">
+            <form action="" method="post">
+                <div class=" ">
+                    <label for="mail">Votre e-mail:</label>
+                    <input class="border-solid border-2 " type="email" id="mail" name="user_mail">
+                </div>
+                <div class="pt-6 ">
+                    <label for="msg">Message :</label>
+                    <textarea class="border-solid border-2 " id="msg" name="user_message"></textarea>
+                </div>
+                <div class="grid grid-cols-2">
+                    <button class="uppercase border-2 bg-red-200">envoyer</button>
+                    <button onclick="colapseForm()" id="colapse" class="uppercase border-2 bg-red-200">annuler</button>
+                </div>
+            </form>
+        </div>
+        <!-- nav bar -->
+        <div class="grid grid-cols-4 border-b-2 bg-red-400">
+            <a onmouseover="mouseOver(1)" href="#balls " class="col bg-red-400 p-2 text-white font-semibold justify-self-center">Balls</a>
+            <a onmouseover="mouseOver(2)" href="#soins " class="col bg-red-400 p-2 text-white font-semibold justify-self-center">Objets de soins</a>
+            <a onmouseover="mouseOver(3)" href="#baies " class="col bg-red-400 p-2  text-white font-semibold justify-self-center">Baie</a>
+            <a onmouseover="mouseOver(4) " href="#obj " class="col bg-red-400 p-2 text-white font-semibold justify-self-center">Objets de combat</a>
+        </div>
+        <!-- banniere -->
+        <div class=" flex justify-item-center">
+            <img id=" banniere " class=" w-auto h-auto max-h-44 m-auto" src="img/baniere.jpg " alt=" ">
+        </div>
+        <!-- aricles -->
+        <div class="bg-white w-full ">
+            <h2 id=" balls " class="text-center text-white uppercase font-bold bg-stone-500 ">balls</h1>
+                <div class="grid grid-cols-2 p-2">
+                    <div class="col justify-self-center">
+                        <h3 class="underline decoration-2  ">classiques:</h3>
+                        <ul class="">
+                            <li>
+                                <button class=" text-black font-bold leading-loose" onclick=popArticle(0) id="article1 ">poke ball</button>
+                            </li>
+                            <li><button class=" text-black font-bold leading-loose" onclick=popArticle(1) id="article2 ">poke ball</button>
+                            </li>
+                            <li><button class=" text-black font-bold leading-loose" onclick=popArticle(2) id="article3 ">poke ball</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col justify-self-center ">
+                        <h3 class="underline decoration-2  ">spéciales:</h3>
+                        <ul>
+                            <li><button class=" text-black font-bold leading-loose " onclick=popArticle(3) id="article4 ">poke ball</button>
+                            </li>
+                            <li><button class=" text-black font-bold leading-loose " onclick=popArticle(4) id="article5 ">poke ball</button>
+                            </li>
+                            <li><button class=" text-black font-bold leading-loose " onclick=popArticle(5) id="article6 ">poke ball</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="priceBall" class="hidden"></div>
+                <div id="transitionBall" class=" bg-red-400 grid  ">
+                    <div class="col justify-self-center justify-item-center m-auto ">
+                        <button " id=" buttonBall " class=" m-auto p-2 bg-red-100 w-36 text-stone-500 uppercase justify-self-center font-bold ">séléctionnez un produit</button>
+                </div>
+                <div class=" col w-22 justify-self-center ">
+                    <img id="imgBall " class='hidden h-auto   max-h-44' src="img/foam-fingers.png " alt=" ">
+                </div>
+            </div>
+    </div>
+    <div class="bg-white ">
+        <h2 id="soins " class="text-center text-white uppercase uppercase font-bold bg-stone-500 ">Objets de soins</h2>
+        <div class="grid grid-cols-2 p-2 ">
+            <div class=" justify-self-center ">
+                <h3 class="underline decoration-2 ">potions:</h3>
+                <ul>
+                    <li>
+                        <button class=" text-black leading-loose " onclick=popArticle(6) id="article7 ">potion</button>
+                    </li>
+                    <li>
+                        <button class=" text-black leading-loose " onclick=popArticle(7) id="article8 ">Hyper potion</button>
+                    </li>
+                    <li>
+                        <button class=" text-black leading-loose " onclick=popArticle(8) id="article9 ">Max potion</button>
+                    </li>
+                </ul>
+            </div>
+            <div class=" justify-self-center ">
+                <h3 class="underline decoration-2 ">rappel:</h3>
+                <ul>
+                    <li>
+                        <button class=" text-black leading-loose " onclick=popArticle(9) id="article10 ">Rappel</button>
+                    </li>
+                    <li>
+                        <button class=" text-black leading-loose " onclick=popArticle(10) id="article11 ">Rappel Max</button>
+                    </li>
+                    <li>
+                        <button class=" text-black leading-loose " onclick=popArticle(11) id="article12 ">Herbe rappel</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="priceSoin " class="hidden "></div>
+        <div id="transitionSoin " class=" bg-red-400 grid ">
+            <div class="col justify-self-center justify-item-center m-auto ">
+                <button " id=" buttonSoin " class=" m-auto p-2 bg-red-100 w-36 text-stone-500 w-36  uppercase font-bold">séléctionnez un produit</button>
+                    </div>
+                    <div class=" col w-22 justify-self-center ">
+                        <img id="imgSoin " class='hidden h-auto  max-h-44' src="img/foam-fingers.png" alt=" ">
+                    </div>
+                </div>
+        </div>
+        <div class="bg-white ">
+            <h2 id="baies " class="text-center text-white uppercase font-bold bg-stone-500  ">Baie</h2>
+            <div class="grid grid-cols-2 p-2 ">
+                <div class="justify-self-center">
+                    <h3 class="underline decoration-2  text-start ">classiques:</h3>
+                    <ul>
+                        <li>
+                            <button class=" text-black leading-loose " onclick=popArticle(12) id="article13 ">Mepo</button>
+                        </li>
+                        <li>
+                            <button class=" text-black leading-loose " onclick=popArticle(13) id="article14 ">Kika</button>
+                        </li>
+                        <li>
+                            <button class=" text-black leading-loose " onclick=popArticle(14) id="article15 ">Ceriz</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="justify-self-center ">
+                    <h3 class="underline decoration-2  ">spéciales:</h3>
+                    <ul>
+                        <li>
+                            <button class=" text-black leading-loose " onclick=popArticle(15) id="article16 ">Frambi</button>
+                        </li>
+                        <li>
+                            <button class=" text-black leading-loose " onclick=popArticle(16) id="article17 ">Nanab</button>
+                        </li>
+                        <li>
+                            <button class=" text-black leading-loose " onclick=popArticle(17) id="article18 ">Nanana</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="priceBaie" class="hidden"></div>
+            <div id="transitionBaie" class=" bg-red-400 grid  ">
+                <div class="col justify-self-center justify-item-center m-auto ">
+                    <button " id="buttonBaie " class=" m-auto p-2 bg-red-100 w-36 text-stone-500 uppercase font-bold ">séléctionnez un produit</button>
+            </div>
+            <div class=" col w-22 justify-self-center ">
+                <img id="imgBaie " class='hidden h-auto  max-h-44' src="img/foam-fingers.png " alt=" ">
+            </div>
+        </div>
+    </div>
+    <div class="bg-red-600 ">
+        <h2 id="obj " class="text-center text-white uppercase font-bold bg-stone-500 ">Objets de combats</h2>
+        <div class="grid grid-cols-2 bg-white p-2 ">
+            <div class="justify-self-center ">
+                <h3 class="underline decoration-2 ">boost:</h3>
+                <ul>
+                    <li>
+                        <button class=" text-black leading-loose " onclick=popArticle(18) id="article19 ">Attaque +</button>
+                    </li>
+                    <li>
+                        <button class=" text-black leading-loose " onclick=popArticle(19) id="article20 ">Vitesse +</button>
+                    </li>
+                    <li>
+                        <button class=" text-black leading-loose " onclick=popArticle(20) id="article21 ">Defense +</button>
+                    </li>
+                </ul>
+            </div>
+            <div class=" justify-self-center ">
+                <h3 class="underline decoration-2 ">passif:</h3>
+                <ul>
+                    <li>
+                        <button class=" text-black leading-loose " onclick=popArticle(21) id="article22 ">Casque brut</button>
+                    </li>
+                    <li>
+                        <button class=" text-black leading-loose " onclick=popArticle(22) id="article23 ">Veste de combat</button>
+                    </li>
+                    <li>
+                        <button class=" text-black leading-loose " onclick=popArticle(23) id="article24 ">Lunette choix</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="priceObj " class="hidden "></div>
+        <div id="transitionObj " class=" bg-red-400 grid border-b-2 ">
+            <div class="col justify-self-center justify-item-center m-auto ">
+                <button " id=" buttonObj " class=" m-auto p-2 bg-red-100 w-36 text-stone-500 uppercase border-2 font-bold">séléctionnez un produit</button>
+                </div>
+                <div class=" col w-22 justify-self-center ">
+                    <img id="imgObj " class='hidden h-auto  max-h-44' src="img/foam-fingers.png" alt=" ">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript " src="app.js ">
+    </script>
+</body>
+
+</html>
