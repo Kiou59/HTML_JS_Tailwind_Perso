@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>PokéJs</h1>
+    </header>
+    <div class="screen-area">
+        <div class="display">
+            <div>
+                <img id="chen" src="" alt="">
+            </div>
+            <div id="intro"></div>
+            <div id="select" style="visibility: hidden;">
+                <img id='selectImg' src="" alt="">
+                <p id="confirmText">
+                </p>
+                <button><a href="/index.html">oui</a></button>
+            </div>
+            <div id="choice" class="hidden">
+                <div onclick="selectBulbi()">
+                    <img id="bulbi" class="pokemon" src="img/bulbi.png " alt=" ">
+                </div>
+                <div onclick="selectSalam()">
+                    <img id='salam' class="pokemon" src="img/salam.png " alt=" ">
+                </div>
+                <div onclick="selectCarap()">
+                    <img id="carap" class="pokemon" src="img/carap.png " alt=" ">
+                </div>
+            </div>
+
+        </div>
+        <button class='startButton' onclick="startIntro() ">
+            commencer
+        </button>
+    </div>
+
+
+</body>
+
+</html>
