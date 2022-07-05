@@ -120,7 +120,7 @@ function textPopOutro(){
             dialogueOutro=''
         }
         }
-    startOutro()
+        startOutro()
 
 
 function chenWalk(){
