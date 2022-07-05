@@ -1,39 +1,67 @@
 // :::::::::::::::::::::::::::::INTRO::::::::::::::::::::::::::::::
-const textIntro =["Bonjour je ne suis pas Chen ","Bienvenue dans cette aventure qui n'est pas pokemon ","Car je n'ai pas les droits ",""];
+let totalPanier =0
+const textIntro =["Bonjour je ne suis pas Chen    ","Bienvenue dans cette aventure qui n'est pas pokemon    ","Car je n'ai pas les droits    ",""];
+const textOutro =["Bon.       ",'        ',"Je pense que tu es pret     ","Mais je n'ai rien coder de plus      ","et de doute facons     ",`tu les as les pokédollars?Je ne pense pas     `,''];
 const chenSrcs=[['/img/chenl0.png','/img/chenl1.png','/img/chenl0.png','/img/chenl2.png'],['/img/chenf0.png','/img/chenf1.png','/img/chenf0.png','/img/chenf2.png'],['/img/chenb0.png','/img/chenb1.png','/img/chenb0.png','/img/chenb2.png']];
 let pokemonsrcs=['/img/bulbi.png','/img/salam.png','/img/carap.png']
 let srcsIndex = 0
+let srcsIndexOutro=0
 let source=0
+let sourceOutro=0
 let textLen=null;
 let ligneDial =0;
 let dialIntro = '';
+let dialOutro=''
 let n = 0;
+let m=0
 let lenIntro = textIntro[n].length;
+let lenOutro = textOutro[m].length;
 let arrayIntro = textIntro[n].split('');
+let arrayOutro = textOutro[m].split('');
 let revArrayIntro = arrayIntro.reverse();
+let revArrayOutro = arrayOutro.reverse();
 let popIntro = ''
+let popOutro = ''
 let transition=(lenIntro-1)
+let transitionOutro=(lenOutro-1)
 let marge=0
+let margeOutro=0
 let hauteur = 0
+let hauteurOutro=0
 let dialogue =''
+let dialogueOutro=''
 let walk=''
+let walkOutro=''
 const setup=()=>{document.getElementById('bulbi').src=pokemonsrcs[0];
 document.getElementById('salam').src=pokemonsrcs[1];
 document.getElementById('carap').src=pokemonsrcs[2];}
 
 
 const margeIncrease =()=>{
-    if(marge<40){
-        marge+=5
-    }else if(marge==40 && hauteur<20){
-        marge=40
-        hauteur+=5
+    if(marge<42){
+        marge+=2
+    }else if(marge==42 && hauteur<20){
+        marge=42
+        hauteur+=4
     }else if(hauteur==20){
         clearInterval(walk)
         document.getElementById('chen').src=chenSrcs[srcsIndex][0];
         dialogue = setInterval(textPop,100)
     }
 }
+const margeIncreaseOutro =()=>{
+    if(margeOutro<42){
+        margeOutro+=2
+    }else if(margeOutro==42 && hauteurOutro<20){
+        margeOutro=42
+        hauteurOutro+=4
+    }else if(hauteurOutro==20){
+        clearInterval(walkOutro)
+        document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][0];
+        dialogueOutro = setInterval(textPopOutro,100)
+    }
+}
+
 
 
 function startIntro(){
@@ -65,12 +93,40 @@ document.getElementById('intro').innerHTML=dialIntro;
         
 }
 }
+function textPopOutro(){
+    if(dialOutro.length <= lenOutro){
+    popOutro = revArrayOutro.pop()
+    dialOutro += popOutro;
+    document.getElementById('outro').innerHTML=dialOutro;
+        if(dialOutro.length==transitionOutro){
+            m=m+1
+            lenOutro = textOutro[m].length;
+            transitionOutro=lenOutro-1
+            arrayOutro = textOutro[m].split('');
+            revArrayOutro= arrayOutro.reverse()
+            dialOutro=''
+            console.log(dialOutro)
+    }}  else if(lenOutro== 0){
+            document.getElementById('outro').innerHTML="Merci !"
 
+    }
+    }
+    function startOutro(){
+        if(dialogueOutro==''){
+        walkOutro = setInterval(chenWalkOutro,300)
+        }else{
+            clearInterval(dialogueOutro)
+            clearInterval(walkOutro)
+            dialogueOutro=''
+        }
+        }
+    startOutro()
 
 
 function chenWalk(){
 margeIncrease()
-if(marge<40){
+
+if(marge<42){
 if(source==0){
     source=1;
     document.getElementById('chen').src=chenSrcs[srcsIndex][source];
@@ -91,7 +147,7 @@ if(source==0){
     
     document.getElementById('chen').src=chenSrcs[srcsIndex][source];
     document.getElementById('chen').style.marginLeft=`${marge}%`
-}}else if(marge == 40 && hauteur<20){
+}}else if(marge >= 42 && hauteur<20){
         srcsIndex=1
         console.log(hauteur)
         document.getElementById('chen').src=chenSrcs[srcsIndex][source];
@@ -112,13 +168,13 @@ if(source==0){
             source=3;
             
             document.getElementById('chen').src=chenSrcs[srcsIndex][source];
-            document.getElementById('chen').style.marginLeft=`${marge}%`
+    
             document.getElementById('chen').style.marginTop =`${hauteur}%`
         }else if(source===3){
             source=0;
             
             document.getElementById('chen').src=chenSrcs[srcsIndex][source];
-            document.getElementById('chen').style.marginLeft=`${marge}%`
+
             document.getElementById('chen').style.marginTop =`${hauteur}%`
         }else if(hauteur===20){
             source=0
@@ -129,6 +185,67 @@ if(source==0){
         }
 }
     }
+    function chenWalkOutro(){
+        margeIncreaseOutro()
+        if(margeOutro<42){
+        if(sourceOutro==0){
+            sourceOutro=1;
+            document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+            document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
+        
+        }else if(sourceOutro===1){
+            sourceOutro=2;
+            
+            document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+            document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
+        }else if(sourceOutro===2){
+            sourceOutro=3;
+            
+            document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+            document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
+        }else if(sourceOutro===3){
+            sourceOutro=0;
+            
+            document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+            document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
+        }}else if(margeOutro == 42 && hauteurOutro<20){
+                srcsIndexOutro=1
+                console.log(hauteurOutro)
+                document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+                document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`;
+                // 
+                if(sourceOutro===0){
+                    sourceOutro=1;
+                    document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+                    document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`;
+                
+                }else if(sourceOutro===1){
+                    sourceOutro=2;
+                    
+                    document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+        
+                    document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`;
+                }else if(sourceOutro===2){
+                    sourceOutro=3;
+                    
+                    document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+                    document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
+                    document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`
+                }else if(sourceOutro===3){
+                    sourceOutro=0;
+                    
+                    document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+                    document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
+                    document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`
+                }else if(hauteurOutro===20){
+                    sourceOutro=0
+                    document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][0];
+                    document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
+                    document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`
+                    console.log(chenSrcs[srcsIndexOutro][0])
+                }
+        }
+            }
 function selectBulbi(){
 
         document.getElementById('select').style.visibility='visible';
@@ -213,7 +330,6 @@ let articleCount = 0;
 let hiddenPanier =`<div class='text-center'>Panier</div>`;
 let contentPanier = null;
 
-let totalPanier =0
 
 let pricePanier=0
 
@@ -308,6 +424,9 @@ function log(){
     }
 
 }
+const totalCount=()=>{
+totalPanier=totalPanier
+}
 function colapsePanier(){
     if(document.getElementById('panier').className=='hidden'){
     document.getElementById('panier').className=` h-auto w-auto bg-red-400 text-bold text-white`;
@@ -325,4 +444,13 @@ function reset(){
     document.getElementById('total').innerHTML=`Total : ${totalPanier}`;
     document.getElementById('pay').innerHTML=`Payer: ${totalPanier}`
 }
+function shopPopUp(){
+    document.getElementById('body').className='w-auto blur-xl'
+}
+shopPopUp()
+function shopGo(){
+    document.getElementById('body').className='w-auto '
+    document.getElementById('popUp').className='hidden'
+}
+// -------------------------Outtro---------------------
 
