@@ -24,14 +24,14 @@ document.getElementById('carap').src=pokemonsrcs[2];}
 
 const margeIncrease =()=>{
     if(marge<40){
-        marge+=10
+        marge+=5
     }else if(marge==40 && hauteur<20){
         marge=40
-        hauteur+=10
+        hauteur+=5
     }else if(hauteur==20){
         clearInterval(walk)
         document.getElementById('chen').src=chenSrcs[srcsIndex][0];
-        dialogue = setInterval(textPop,50)
+        dialogue = setInterval(textPop,100)
     }
 }
 
