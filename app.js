@@ -1,7 +1,10 @@
 // :::::::::::::::::::::::::::::INTRO::::::::::::::::::::::::::::::
 let totalPanier =0
+let transfertPanier= 0
+let pokemonName = 0
+let storePokemonName=0
 const textIntro =["Bonjour je ne suis pas Chen    ","     Bienvenue dans cette aventure qui n'est pas pokemon    ","    Car je n'ai pas les droits    ",'     choisit ton pokemon  ',''];
-const textOutro =["Bon.       ",'        ',"Je pense que tu vas etre décu.     ","   Mais je n'ai rien coder de plus      ","   et de toutes facons     ",`    tu les as les pokédollars?  Je ne pense pas     `,''];
+const textOutro =["Bon.       ",'        ',"Je pense que tu vas etre décu.     ","   Mais je n'ai rien coder de plus      ","   et de toutes facons     ",`    tu as des  pokédollars?     Je ne pense pas     `,''];
 const chenSrcs=[['/img/chenl0.png','/img/chenl1.png','/img/chenl0.png','/img/chenl2.png'],['/img/chenf0.png','/img/chenf1.png','/img/chenf0.png','/img/chenf2.png'],['/img/chenb0.png','/img/chenb1.png','/img/chenb0.png','/img/chenb2.png']];
 let pokemonsrcs=['/img/bulbi.png','/img/salam.png','/img/carap.png']
 let srcsIndex = 0
@@ -156,7 +159,9 @@ function selectBulbi(){
 
         document.getElementById('select').style.visibility='visible';
         document.getElementById('selectImg').src=pokemonsrcs[0];
-        
+        localStorage.setItem(selectImgSrc,pokemonsrcs[0])
+        pokemonName='Bulbizarre'
+
         document.getElementById('choice').style.marginTop='3%'
         document.getElementById('confirmText').innerHTML='Bulbizarre?';
         
@@ -165,6 +170,8 @@ function selectBulbi(){
 
         document.getElementById('select').style.visibility='visible';
         document.getElementById('selectImg').src=pokemonsrcs[1];
+        localStorage.setItem(selectImgSrc,pokemonsrcs[1])
+        pokemonName='Salameche'
         document.getElementById('choice').style.marginTop='3%'
         document.getElementById('confirmText').innerHTML='Salameche?';
     }
@@ -172,9 +179,14 @@ function selectBulbi(){
 
         document.getElementById('select').style.visibility='visible';
         document.getElementById('selectImg').src=pokemonsrcs[2];
+        localStorage.setItem(selectImgSrc,pokemonsrcs[2])
+        pokemonName='Carapuce'
         document.getElementById('choice').style.marginTop='3%'
         document.getElementById('confirmText').innerHTML='Carapuce?';
 
+    }
+    function varStore(){
+        localStorage.setItem(storePokemonName,pokemonName)
     }
 
 
@@ -243,6 +255,7 @@ let pricePanier=0
 
 
 function nameArticle() {
+    console.log(localStorage.getItem(pokemonName))
     for (let h=0 ; h <=23 ; h++) {
 let articleName= document.getElementById(`article${h+1} `);
         articleName.innerHTML = articles[h].name;
@@ -333,7 +346,7 @@ function log(){
 
 }
 const totalCount=()=>{
-totalPanier=totalPanier
+
 }
 function colapsePanier(){
     if(document.getElementById('panier').className=='hidden'){
@@ -376,7 +389,7 @@ function margeIncreaseOutro (){
 function margeDecreaseOutro (){
     console.log(hauteurOutro)
     if(hauteurOutro>0 && margeOutro<100){
-        hauteurOutro-=2
+        hauteurOutro-=4
     }else if(hauteurOutro == 0 && margeOutro<100){
         hauteurOutro=0
         margeOutro+=2
@@ -400,13 +413,16 @@ function textPopOutro(){
             dialOutro=''
             console.log(dialOutro)
     }}  else if(m==6){
+        document.getElementById('carapOutro').style.visibility='visible'
             document.getElementById('outro').innerHTML=""
             walkBackOutro=setInterval(chenWalkBackOutro(),200)
 
     }
     }
     function startOutro(){
-        
+        console.log(localStorage.getItem(pokemonName))
+        document.getElementById('carapOutro').src=localStorage.getItem(selectImgSrc)
+        document.getElementById('carapOutro').style.visibility='hidden'
         if(dialogueOutro==''){
         walkOutro = setInterval(chenWalkOutro,200)
         }else{
@@ -415,9 +431,11 @@ function textPopOutro(){
             dialogueOutro=''
             document.getElementById('chenOutro').style.visibility='hidden';
             console.log(document.getElementById('outro').innerHTML)
-            document.getElementById('outro').innerHTML="Merci !"
-        }
-    }
+            document.getElementById('carapOutro').style.visibility='visible'
+            setTimeout(function(){ document.getElementById('outro').innerHTML=`${localStorage.getItem(storePokemonName)} revient ici!`},800)
+            setTimeout(function(){document.getElementById('carapOutro').style.visibility='hidden'},1400)
+            setTimeout(function(){document.getElementById('outro').innerHTML='Merci!'},1800)
+        }}
 
 function chenWalkOutro(){
     margeIncreaseOutro()

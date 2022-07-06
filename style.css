@@ -60,6 +60,7 @@
         border-radius: 20px; */
     padding: auto;
     margin: auto;
+    z-index: 3;
 }
 
 .choice {
@@ -93,4 +94,11 @@
     margin: auto;
     text-align: center;
     margin-left: 40%;
+}
+
+#pokemonOutro {
+    position: absolute;
+    top: 11%;
+    left: 38%;
+    z-index: 1;
 }
