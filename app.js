@@ -413,7 +413,7 @@ function textPopOutro(){
             clearInterval(dialogueOutro)
             clearInterval(walkOutro)
             dialogueOutro=''
-            document.getElementById('chenOutro').src='';
+            document.getElementById('chenOutro').style.visibility='hidden';
             console.log(document.getElementById('outro').innerHTML)
             document.getElementById('outro').innerHTML="Merci !"
         }
@@ -536,7 +536,7 @@ function chenWalkBackOutro(){
                     document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`
                 }else if(margeOutro===100){
                     sourceOutro=0
-                    document.getElementById('chenOutro').src='';
+                    document.getElementById('chenOutro').style.visibility='hidden';
                     
 
                     
