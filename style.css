@@ -52,7 +52,9 @@
     color: black;
     font-family: 'PokemonGB';
     font-size: small;
-    letter-spacing: 2px;
+    min-width: 100%;
+    position: absolute;
+    top: 30%;
 }
 
 #chen {

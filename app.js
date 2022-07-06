@@ -420,6 +420,7 @@ function textPopOutro(){
     }
     }
     function startOutro(){
+        document.getElementById('outro').style.textAlign='center'
         console.log(localStorage.getItem(pokemonName))
         document.getElementById('carapOutro').src=localStorage.getItem(selectImgSrc)
         document.getElementById('carapOutro').style.visibility='hidden'
