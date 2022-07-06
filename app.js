@@ -1,7 +1,7 @@
 // :::::::::::::::::::::::::::::INTRO::::::::::::::::::::::::::::::
 let totalPanier =0
-const textIntro =["Bonjour je ne suis pas Chen    ","Bienvenue dans cette aventure qui n'est pas pokemon    ","Car je n'ai pas les droits    ",""];
-const textOutro =["Bon.       ",'        ',"Je pense que tu es pret     ","Mais je n'ai rien coder de plus      ","et de doute facons     ",`tu les as les pokédollars?Je ne pense pas     `,''];
+const textIntro =["Bonjour je ne suis pas Chen    ","     Bienvenue dans cette aventure qui n'est pas pokemon    ","    Car je n'ai pas les droits    ",'     choisit ton pokemon  ',''];
+const textOutro =["Bon.       ",'        ',"Je pense que tu vas etre décu.     ","   Mais je n'ai rien coder de plus      ","   et de toutes facons     ",`    tu les as les pokédollars?  Je ne pense pas     `,''];
 const chenSrcs=[['/img/chenl0.png','/img/chenl1.png','/img/chenl0.png','/img/chenl2.png'],['/img/chenf0.png','/img/chenf1.png','/img/chenf0.png','/img/chenf2.png'],['/img/chenb0.png','/img/chenb1.png','/img/chenb0.png','/img/chenb2.png']];
 let pokemonsrcs=['/img/bulbi.png','/img/salam.png','/img/carap.png']
 let srcsIndex = 0
@@ -32,9 +32,11 @@ let dialogue =''
 let dialogueOutro=''
 let walk=''
 let walkOutro=''
+let walkBackOutro=''
 const setup=()=>{document.getElementById('bulbi').src=pokemonsrcs[0];
 document.getElementById('salam').src=pokemonsrcs[1];
 document.getElementById('carap').src=pokemonsrcs[2];}
+let selectImgSrc=''
 
 
 const margeIncrease =()=>{
@@ -46,27 +48,17 @@ const margeIncrease =()=>{
     }else if(hauteur==20){
         clearInterval(walk)
         document.getElementById('chen').src=chenSrcs[srcsIndex][0];
-        dialogue = setInterval(textPop,100)
+        dialogue = setInterval(textPop,80)
     }
 }
-const margeIncreaseOutro =()=>{
-    if(margeOutro<42){
-        margeOutro+=2
-    }else if(margeOutro==42 && hauteurOutro<20){
-        margeOutro=42
-        hauteurOutro+=4
-    }else if(hauteurOutro==20){
-        clearInterval(walkOutro)
-        document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][0];
-        dialogueOutro = setInterval(textPopOutro,100)
-    }
-}
+
 
 
 
 function startIntro(){
 if(dialogue==''){
-walk = setInterval(chenWalk,300)
+walk = setInterval(chenWalk,200)
+document.getElementById('startButton').style.visibility='hidden';
 }else{
     clearInterval(dialogue)
     clearInterval(walk)
@@ -75,11 +67,11 @@ walk = setInterval(chenWalk,300)
 }
 
 function textPop(){
-if(dialIntro.length <= lenIntro){
+if(dialIntro.length <= lenIntro && n <3){
 popIntro = revArrayIntro.pop()
 dialIntro += popIntro;
 document.getElementById('intro').innerHTML=dialIntro;
-    if(dialIntro.length==transition){
+    if(dialIntro.length==transition && n<3){
         n=n+1
         lenIntro = textIntro[n].length;
         transition=lenIntro-1
@@ -87,40 +79,14 @@ document.getElementById('intro').innerHTML=dialIntro;
         revArrayIntro= arrayIntro.reverse()
         dialIntro=''
         console.log(n)
-}}  else if(lenIntro== 0){
+        console.log(textIntro[n])
+}}  else if(n > 2){
         document.getElementById('intro').innerHTML='choisit ton pokemon'
         document.getElementById('choice').className='choice';
         
 }
 }
-function textPopOutro(){
-    if(dialOutro.length <= lenOutro){
-    popOutro = revArrayOutro.pop()
-    dialOutro += popOutro;
-    document.getElementById('outro').innerHTML=dialOutro;
-        if(dialOutro.length==transitionOutro){
-            m=m+1
-            lenOutro = textOutro[m].length;
-            transitionOutro=lenOutro-1
-            arrayOutro = textOutro[m].split('');
-            revArrayOutro= arrayOutro.reverse()
-            dialOutro=''
-            console.log(dialOutro)
-    }}  else if(lenOutro== 0){
-            document.getElementById('outro').innerHTML="Merci !"
 
-    }
-    }
-    function startOutro(){
-        if(dialogueOutro==''){
-        walkOutro = setInterval(chenWalkOutro,300)
-        }else{
-            clearInterval(dialogueOutro)
-            clearInterval(walkOutro)
-            dialogueOutro=''
-        }
-        }
-        startOutro()
 
 
 function chenWalk(){
@@ -185,73 +151,15 @@ if(source==0){
         }
 }
     }
-    function chenWalkOutro(){
-        margeIncreaseOutro()
-        if(margeOutro<42){
-        if(sourceOutro==0){
-            sourceOutro=1;
-            document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
-            document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
-        
-        }else if(sourceOutro===1){
-            sourceOutro=2;
-            
-            document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
-            document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
-        }else if(sourceOutro===2){
-            sourceOutro=3;
-            
-            document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
-            document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
-        }else if(sourceOutro===3){
-            sourceOutro=0;
-            
-            document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
-            document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
-        }}else if(margeOutro == 42 && hauteurOutro<20){
-                srcsIndexOutro=1
-                console.log(hauteurOutro)
-                document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
-                document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`;
-                // 
-                if(sourceOutro===0){
-                    sourceOutro=1;
-                    document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
-                    document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`;
-                
-                }else if(sourceOutro===1){
-                    sourceOutro=2;
-                    
-                    document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
-        
-                    document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`;
-                }else if(sourceOutro===2){
-                    sourceOutro=3;
-                    
-                    document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
-                    document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
-                    document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`
-                }else if(sourceOutro===3){
-                    sourceOutro=0;
-                    
-                    document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
-                    document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
-                    document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`
-                }else if(hauteurOutro===20){
-                    sourceOutro=0
-                    document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][0];
-                    document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
-                    document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`
-                    console.log(chenSrcs[srcsIndexOutro][0])
-                }
-        }
-            }
+
 function selectBulbi(){
 
         document.getElementById('select').style.visibility='visible';
         document.getElementById('selectImg').src=pokemonsrcs[0];
+        
         document.getElementById('choice').style.marginTop='3%'
         document.getElementById('confirmText').innerHTML='Bulbizarre?';
+        
     }
     function selectSalam(){
 
@@ -453,4 +361,187 @@ function shopGo(){
     document.getElementById('popUp').className='hidden'
 }
 // -------------------------Outtro---------------------
+function margeIncreaseOutro (){
+    if(margeOutro<42){
+        margeOutro+=2
+    }else if(margeOutro==42 && hauteurOutro<20){
+        margeOutro=42
+        hauteurOutro+=4
+    }else if(hauteurOutro==20){
+        clearInterval(walkOutro)
+        document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][0];
+        dialogueOutro = setInterval(textPopOutro,80)
+    }
+}
+function margeDecreaseOutro (){
+    console.log(hauteurOutro)
+    if(hauteurOutro>0 && margeOutro<100){
+        hauteurOutro-=2
+    }else if(hauteurOutro == 0 && margeOutro<100){
+        hauteurOutro=0
+        margeOutro+=2
+    }else if(margeOutro==100){
+        startOutro()
+        
+        
+    }
+}
+function textPopOutro(){
+    if(dialOutro.length <= lenOutro && m < 6){
+    popOutro = revArrayOutro.pop()
+    dialOutro += popOutro;
+    document.getElementById('outro').innerHTML=dialOutro;
+        if(dialOutro.length==transitionOutro){
+            m=m+1
+            lenOutro = textOutro[m].length;
+            transitionOutro=lenOutro-1
+            arrayOutro = textOutro[m].split('');
+            revArrayOutro= arrayOutro.reverse()
+            dialOutro=''
+            console.log(dialOutro)
+    }}  else if(m==6){
+            document.getElementById('outro').innerHTML=""
+            walkBackOutro=setInterval(chenWalkBackOutro(),200)
+
+    }
+    }
+    function startOutro(){
+        
+        if(dialogueOutro==''){
+        walkOutro = setInterval(chenWalkOutro,200)
+        }else{
+            clearInterval(dialogueOutro)
+            clearInterval(walkOutro)
+            dialogueOutro=''
+            document.getElementById('chenOutro').src='';
+            console.log(document.getElementById('outro').innerHTML)
+            document.getElementById('outro').innerHTML="Merci !"
+        }
+    }
+
+function chenWalkOutro(){
+    margeIncreaseOutro()
+    if(margeOutro<42){
+    if(sourceOutro==0){
+        sourceOutro=1;
+        document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+        document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
+    
+    }else if(sourceOutro===1){
+        sourceOutro=2;
+        
+        document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+        document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
+    }else if(sourceOutro===2){
+        sourceOutro=3;
+        
+        document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+        document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
+    }else if(sourceOutro===3){
+        sourceOutro=0;
+        
+        document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+        document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
+    }}else if(margeOutro == 42 && hauteurOutro<20){
+            srcsIndexOutro=1
+            console.log(hauteurOutro)
+            document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+            document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`;
+            // 
+            if(sourceOutro===0){
+                sourceOutro=1;
+                document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+                document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`;
+            
+            }else if(sourceOutro===1){
+                sourceOutro=2;
+                
+                document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+    
+                document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`;
+            }else if(sourceOutro===2){
+                sourceOutro=3;
+                
+                document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+                document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
+                document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`
+            }else if(sourceOutro===3){
+                sourceOutro=0;
+                
+                document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+                document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
+                document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`
+            }else if(hauteurOutro===20){
+                sourceOutro=0
+                document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][0];
+                document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
+                document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`
+                console.log(chenSrcs[srcsIndexOutro][0])
+            }
+    }
+        }
+function chenWalkBackOutro(){
+    srcsIndexOutro=2
+    console.log(margeOutro)
+    margeDecreaseOutro()
+    if(hauteurOutro>0){
+        if(sourceOutro==0){
+            sourceOutro=1;
+            document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+            document.getElementById('chenOutro').style.marginTop=`${hauteurOutro}%`
+        
+        }else if(sourceOutro===1){
+            sourceOutro=2;
+            
+            document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+            document.getElementById('chenOutro').style.marginTop=`${hauteurOutro}%`
+        }else if(sourceOutro===2){
+            sourceOutro=3;
+            
+            document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+            document.getElementById('chenOutro').style.marginTop=`${hauteurOutro}%`
+        }else if(sourceOutro===3){
+            sourceOutro=0;
+            
+            document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+            document.getElementById('chenOutro').style.marginTop=`${hauteurOutro}%`
+        }}else if(hauteurOutro==0 && margeOutro<100){
+                srcsIndexOutro=0
+                console.log(hauteurOutro)
+                document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+                document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`;
+                // 
+                if(sourceOutro===0){
+                    sourceOutro=1;
+                    document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+                    document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`;
+                
+                }else if(sourceOutro===1){
+                    sourceOutro=2;
+                    
+                    document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+        
+                    document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`;
+                }else if(sourceOutro===2){
+                    sourceOutro=3;
+                    
+                    document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+                    document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
+                    document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`
+                }else if(sourceOutro===3){
+                    sourceOutro=0;
+                    
+                    document.getElementById('chenOutro').src=chenSrcs[srcsIndexOutro][sourceOutro];
+                    document.getElementById('chenOutro').style.marginLeft=`${margeOutro}%`
+                    document.getElementById('chenOutro').style.marginTop =`${hauteurOutro}%`
+                }else if(margeOutro===100){
+                    sourceOutro=0
+                    document.getElementById('chenOutro').src='';
+                    
+
+                    
+                }
+        }
+            }
+
 

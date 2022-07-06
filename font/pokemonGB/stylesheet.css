@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Pokemon GB';
+    src: url('PokemonGB.eot');
+    src: url('PokemonGB.eot?#iefix') format('embedded-opentype'),
+        url('PokemonGB.woff2') format('woff2'),
+        url('PokemonGB.woff') format('woff'),
+        url('PokemonGB.ttf') format('truetype'),
+        url('PokemonGB.svg#PokemonGB') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
