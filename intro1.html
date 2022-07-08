@@ -12,14 +12,14 @@
 
 <body>
     <div class="relative">
-        <div id="popUp" class="sticky mt-36 m-auto">
+        <div id="popUp" class="sticky inset-x-2 border-slate-400 border-2 p-2 mt-36 w-80 shadow-2xl  m-auto">
             <div>
                 <img class="m-auto" src="img/chenf0.png" alt="">
             </div>
             <div class="text-center"> Fait donc quelques courses avant de partir
             </div>
             <div class="grid grid-col">
-                <button onclick="shopGo()" class="mt-4 border-slate-400 border-2 p-2 place-self-center">compris</button>
+                <button onclick="shopGo()" class=" mt-4 border-slate-400 border-2 p-2 place-self-center">compris</button>
             </div>
         </div>
         <div>
@@ -57,8 +57,8 @@
 
                             <a onclick="totalCount()" id="pay" class="border-2 text-stone-500 bg-red-100 p-2 mt-2 ml-2" href="/end.html">coucou</a>
                         </div>
-                        <div class="justify-self-end">
-                            <button id="reset" onclick='reset()' class="border-2 text-stone-500 bg-red-100 p-2 mr-2">Annuler</button>
+                        <div class="justify-self-end pb-4">
+                            <button id="reset" onclick='reset()' class="border-2 text-stone-500 bg-red-100  p-2 mr-2">Annuler</button>
                         </div>
                     </div>
                 </div>
@@ -72,16 +72,16 @@
                             <label for="msg ">Message :</label>
                             <textarea placeholder="En construction " class="border-solid border-2 " id="msg " name="user_message "></textarea>
                         </div>
-                        <div class=" ">
-                            <button class="uppercase border-2 bg-red-200 ">envoyer</button>
+                        <div class="pt-1.5 ">
+                            <button class="uppercase border-2 p-2 bg-red-200 ">envoyer</button>
                         </div>
                     </form>
                     <div class="col self-end ">
-                        <button onclick='col()' class=" uppercase border-2 bg-red-200 ">annuler</button>
+                        <button onclick='col()' class="absolute top-44 left-24 p-2 uppercase border-2 bg-red-200 ">annuler</button>
                     </div>
                 </div>
                 <!-- nav bar -->
-                <div class="grid grid-cols-4 border-b-2 bg-red-400 ">
+                <div class="grid grid-cols-4 mt-4 border-b-2 bg-red-400 ">
                     <a onmouseover="mouseOver(1) " href="#balls " class="col bg-red-400 p-2 text-white font-semibold justify-self-center ">Balls</a>
                     <a onmouseover="mouseOver(2) " href="#soins " class="col bg-red-400 p-2 text-white font-semibold justify-self-center ">Objets de soins</a>
                     <a onmouseover="mouseOver(3) " href="#baies " class="col bg-red-400 p-2 text-white font-semibold justify-self-center ">Baie</a>
