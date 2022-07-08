@@ -312,7 +312,7 @@ function mouseOver(n) {
 }
 
 function hiddenform() {
-    if(document.getElementById('hiddenForm ').className ==' grid grid-cols-2'){
+    if(document.getElementById('hiddenForm ').className =='h-auto w-auto grid grid-cols-2'){
         document.getElementById('hiddenForm ').className = 'hidden'
     }
 else{
